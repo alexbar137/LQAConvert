@@ -17,11 +17,24 @@ namespace LQAConverter.Model.DataConnectors
         public DataConnector() 
         {
 
-            Freelancers.FreelancersDataContext site = new Freelancers.FreelancersDataContext(new Uri("http://inside.office.palex/lqa/_vti_bin/ListData.svc"));
-            site.Credentials = CredentialCache.DefaultNetworkCredentials;
+            string siteURL = "http://inside.office.palex/lqa/_vti_bin/ListData.svc";
+            ClientContext context = new ClientContext(new Uri(siteURL));
+            CredentialCache cc = new CredentialCache();
+            cc.Add(new Uri(siteURL), "NTLM", CredentialCache.DefaultNetworkCredentials);
+            context.Credentials = cc;
+            context.AuthenticationMode = ClientAuthenticationMode.Default;
 
-            
-            
+            Web webSite = context.Web;
+            var collList = webSite.Lists;
+
+            context.Load(webSite);
+            context.Load(collList);
+            context.ExecuteQuery();
+
+            foreach (var i in collList)
+            {
+                Debug.WriteLine(i.Title);
+            }
            
         }
 

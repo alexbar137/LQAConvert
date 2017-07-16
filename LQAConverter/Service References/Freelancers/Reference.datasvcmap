@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9a47014a-6f5c-4f5d-8568-3a552c129347" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="029aac19-17cf-4a10-a17f-659890bc8902" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
   <MetadataSources>
     <MetadataSource Address="http://inside.office.palex/lqa/_vti_bin/ListData.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="72ce6862-2d81-4b6d-b58d-b5a65fdfc6dc" SourceId="1" SourceUrl="http://inside.office.palex/lqa/_vti_bin/ListData.svc" />
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="fe3d3587-d1c5-4762-ad40-1c4ca9943149" SourceId="1" SourceUrl="http://inside.office.palex/lqa/_vti_bin/ListData.svc" />
   </Metadata>
   <Extensions />
   <Parameters>
