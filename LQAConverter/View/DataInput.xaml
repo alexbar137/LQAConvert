@@ -1,0 +1,149 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LQAConverter.View"
+             xmlns:ViewModel="clr-namespace:LQAConverter.ViewModel" x:Class="LQAConverter.View.DataInput"
+             mc:Ignorable="d" 
+             d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Date" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Manager" />
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Customer" />
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Account" />
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Source Language" />
+        <TextBlock Grid.Row="5"
+                   Grid.Column="0"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Target Language" />
+        <TextBlock Grid.Row="6"
+                   Grid.Column="0"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Project Code" />
+        <TextBlock Grid.Row="0"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Team" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Activity" />
+        <TextBlock Grid.Row="2"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Vendor" />
+        <TextBlock Grid.Row="3"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Subject Area" />
+        <TextBlock Grid.Row="4"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Container" />
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Application" />
+        <TextBlock Grid.Row="6"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Words Checked" />
+        <TextBlock Grid.Row="7"
+                   Grid.Column="2"
+                   Style="{StaticResource TextBlockStyle}"
+                   Text="Reviewer" />
+        <DatePicker Grid.Row="0" 
+                    x:Name="dtp_Date" 
+                    Grid.Column="1" 
+                    Style="{StaticResource DatePickerStyle}" FirstDayOfWeek="Monday" SelectedDate="{Binding Path=Header.Date, Mode=TwoWay}" />
+        <ComboBox Grid.Row="1" 
+                  x:Name="cmbx_Manager" 
+                  Grid.Column="1" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Path=Header.Manager, Mode=TwoWay}"/>
+
+        <ComboBox Grid.Row="2" x:Name="cmbx_Customer"
+                 Grid.Column="1"
+                 Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Customer, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="3" x:Name="cmbx_Account"
+                 Grid.Column="1"
+                 Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Account, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="4" x:Name="cmbx_SourceLang"
+                 Grid.Column="1"
+                 Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.SourceLang, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="5" x:Name="cmbx_TargetLang"
+                 Grid.Column="1"
+                 Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.TargetLang, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="6" x:Name="cmbx_AccountProjectCode"
+                 Grid.Column="1"
+                 Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.TargetLang, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="0" 
+                  x:Name="cmbx_Team" 
+                  Grid.Column="3" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Team, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="1" 
+                  x:Name="cmbx_Activity" 
+                  Grid.Column="3" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Activity, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="2" 
+                  x:Name="cmbx_Vendor" 
+                  Grid.Column="3" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Vendor, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="3" 
+                  x:Name="cmbx_SubjectArea" 
+                  Grid.Column="3" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.SubjectArea, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="4" 
+                  x:Name="cmbx_Container" 
+                  Grid.Column="3" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Container, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="5" 
+                  x:Name="cmbx_Application" 
+                  Grid.Column="3" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Application, Mode=TwoWay}"/>
+        <TextBox Grid.Row="6"
+                 Grid.Column="3"
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Header.WordsChecked, Mode=TwoWay}"
+                 PreviewTextInput="TextBox_PreviewTextInput"/>
+        <ComboBox Grid.Row="7" 
+                  x:Name="cmbx_Reviewer" 
+                  Grid.Column="3" 
+                  Style="{StaticResource ComboBoxStyle}" Text="{Binding Header.Reviewer, Mode=TwoWay}"/>
+
+    </Grid>
+</UserControl>
