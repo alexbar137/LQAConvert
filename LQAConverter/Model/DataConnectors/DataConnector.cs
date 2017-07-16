@@ -19,23 +19,18 @@ namespace LQAConverter.Model.DataConnectors
 
             string siteURL = "http://inside.office.palex/lqa/_vti_bin/ListData.svc";
             ClientContext context = new ClientContext(new Uri(siteURL));
-            CredentialCache cc = new CredentialCache();
-            cc.Add(new Uri(siteURL), "NTLM", CredentialCache.DefaultNetworkCredentials);
-            context.Credentials = cc;
-            context.AuthenticationMode = ClientAuthenticationMode.Default;
+            context.Credentials = CredentialCache.DefaultNetworkCredentials;
 
             Web webSite = context.Web;
-            var collList = webSite.Lists;
+            ListCollection collList = webSite.Lists;
 
-            context.Load(webSite);
             context.Load(collList);
             context.ExecuteQuery();
-
-            foreach (var i in collList)
+            
+            foreach (SP.List s in collList)
             {
-                Debug.WriteLine(i.Title);
-            }
-           
+                Debug.WriteLine("Title: {0} Created: {1}", s.Title, s.Created.ToString());
+            }           
         }
 
         public class Language 
