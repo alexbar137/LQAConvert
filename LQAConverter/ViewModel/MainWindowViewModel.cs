@@ -9,6 +9,7 @@ using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using LQAConverter.Model.DataConnectors;
 
 namespace LQAConverter.ViewModel
 {
@@ -38,6 +39,9 @@ namespace LQAConverter.ViewModel
             //Инициализация свойств
             Files = new ObservableCollection<FileData>();
             Header = new LQAHeader() { Date = DateTime.Today};
+
+            //Инициализация модели
+            DataConnector DC = new DataConnector();
             
             
         }

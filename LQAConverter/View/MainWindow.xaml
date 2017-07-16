@@ -10,8 +10,8 @@
         mc:Ignorable="d"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd ="http://www.galasoft.ch/mvvmlight"
-        Title="MainWindow" Height="530" Width="800">
-    
+        Title="MainWindow" Height="500" Width="800">
+
     <Window.DataContext>
         <viewModel:MainWindowViewModel x:Name="objDataContext"/>
     </Window.DataContext>
@@ -25,26 +25,27 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="82" Margin="22,23,0,0" VerticalAlignment="Top" Width="241" Source="logo.jpg"/>
-        <Label x:Name="label" Content="Language Quality Assessment" HorizontalAlignment="Left" Margin="392,49,0,0" VerticalAlignment="Top" Width="322" FontSize="20" FontWeight="Bold" Height="37"/>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="373" Margin="22,122,0,0" VerticalAlignment="Top" Width="760">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="image" HorizontalAlignment="Left" Height="82" Margin="10,10,100,0"  Width="241" Source="logo.jpg"/>
+                <Label x:Name="label" Content="Language Quality Assessment" Margin="0, 25" HorizontalAlignment="Right" VerticalAlignment="Top" Width="322" FontSize="20" FontWeight="Bold" Height="37"/>
+            </StackPanel>
+            <TabControl x:Name="tabControl" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Center" MinWidth="750" MinHeight="250">
             <TabItem Header="Create">
-                <Grid Background="White">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="402"/>
-                        <ColumnDefinition Width="Auto" MinWidth="348"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+                <Grid Background="White" Width="Auto">
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <view:DataInput 
                         Grid.Row="0"
-                        Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,100" />
-                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
-                        <Button Content="Create" Style="{StaticResource ButtonStyle}" Command="{Binding CreateReportCommand}"/>
-                        <Button Content="Clear" Style="{StaticResource ButtonStyle}" Margin="50,0,0,0"/>
+                        Grid.Column="0" Margin="0,0,0,100" />
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                        <Button Content="Create" Style="{StaticResource ButtonStyle}" 
+                                Command="{Binding CreateReportCommand}"
+                                Margin="0,0,50,0"/>
+                        <Button Content="Clear" Style="{StaticResource ButtonStyle}" />
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -61,7 +62,7 @@
                             <cmd:EventToCommand Command="{Binding DragDropCommand}" PassEventArgsToCommand="True" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                    
+
                     <ListView x:Name="lst_List" ItemsSource="{Binding Files}" Grid.RowSpan="2">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -79,6 +80,7 @@
 
             </TabItem>
         </TabControl>
+        </StackPanel>
 
     </Grid>
 </Window>
